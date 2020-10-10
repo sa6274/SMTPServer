@@ -26,16 +26,16 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     #   print('250 reply not received from server.')
 
     # Send MAIL FROM command and print server response.
-    mailFrom = 'MAIL From: <sa6274@nyu.edu>\r\n'
-    clientSocket.send(mailFrom.encode())
+    mailfromCommand = 'MAIL From: <sa6274@nyu.edu>\r\n'
+    clientSocket.send(mailfromCommand.encode())
     #  recv1 = clientSocket.recv(1024).decode()
     #  print (recv1)
     # if recv1[:3] != '250':
     #    print('250 reply not received from server., 3')
 
     # Send RCPT TO command and print server response.
-    rcptTo = 'RCPT To: <sa6274@nyu.edu>\r\n'
-    clientSocket.send(rcptTo.encode())
+    rcpttoCommand = 'RCPT To: <sa6274@nyu.edu>\r\n'
+    clientSocket.send(rcpttoCommand.encode())
     #   recv1 = clientSocket.recv(1024).decode()
     # print(recv1)
     # if recv1[:3] != '250':
