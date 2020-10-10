@@ -1,9 +1,9 @@
 from socket import *
 
 
-def smtp_client(port=587, mailserver='smtp.nyu.edu'):
-    mailserver = ('smtp.nyu.edu')
-    port= 25
+def smtp_client(port=1025, mailserver='127.0.0.1'):
+    mailserver = ('127.0.0.1')
+    port= 1025
     msg = "\r\n My message"
     endmsg = "\r\n.\r\n"
 
@@ -64,4 +64,4 @@ def smtp_client(port=587, mailserver='smtp.nyu.edu'):
      #   print('250 reply not received from server.')
 
 if __name__ == '__main__':
-    smtp_client('smtp.nyu.edu', 25)
+    smtp_client('127.0.0.1', 1025)
