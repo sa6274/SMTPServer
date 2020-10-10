@@ -26,7 +26,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     #   print('250 reply not received from server.')
 
     # Send MAIL FROM command and print server response.
-    mailfromCommand = 'MAIL From: <sa6274@nyu.edu>\r\n'
+    mailfromCommand = "MAIL FROM:<test@mail.com>\r\n"
     clientSocket.send(bytes(mailfromCommand.encode()))
     #  recv1 = clientSocket.recv(1024).decode()
     #  print (recv1)
