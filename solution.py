@@ -4,7 +4,7 @@ from socket import *
 def smtp_client(port=1025, mailserver='127.0.0.1'):
     mailserver = ('127.0.0.1')
     port = 1025
-    msg = "\r\n My message \r\n"
+    msg = "\r\n My message"
     endmsg = "\r\n.\r\n"
 
     # Choose a mail server (e.g. Google mail server) if you want to verify the script beyond GradeScope
@@ -28,24 +28,26 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Send MAIL FROM command and print server response.
     mailFrom = 'MAIL From: <sa6274@nyu.edu>\r\n'
     clientSocket.send(mailFrom.encode())
-    #  recv2 = clientSocket.recv(1024).decode()
+    #  recv1 = clientSocket.recv(1024).decode()
     #  print (recv1)
-    # if recv2[:3] != '250':
-    #    print('250 reply not received from server')
+    # if recv1[:3] != '250':
+    #    print('250 reply not received from server., 3')
 
     # Send RCPT TO command and print server response.
     rcptTo = 'RCPT To: <sa6274@nyu.edu>\r\n'
     clientSocket.send(rcptTo.encode())
-    #   recv3 = clientSocket.recv(1024).decode()
-    # print(recv3)
-    # if recv3[:3] != '250':
-    # print('250 reply not received from server')
+    #   recv1 = clientSocket.recv(1024).decode()
+    # print(recv1)
+    # if recv1[:3] != '250':
+    # print('250 reply not received from server., 4')
 
     # Send DATA command and print server response.
-    data = 'DATA\r\n'
-    clientSocket.send(data.encode())
+    dataCommand = 'DATA\r\n'
+    clientSocket.send(dataCommand.encode())
 
     # Send message data.
+    subject = "Subject: SMTP Test Mail:"
+    clientSocket.send(subject.encode())
     clientSocket.send(msg.encode())
 
     # Message ends with a single period.
@@ -53,15 +55,14 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     #  print(endmsg)
 
     # Send QUIT command and get server response.
-    quitCommand = 'QUIT\r\n'
-    clientSocket.send(quitCommand.encode())
+    quit = 'QUIT\r\n'
+    clientSocket.send(quit.encode())
 
 
-#  recv4 = clientSocket.recv(1024)
+#  recv1 = clientSocket.recv(1024)
 # print(recv1)
-# if recv4[:3] != '250':
+# if recv1[:3] != '250':
 #   print('250 reply not received from server.')
-
 
 if __name__ == '__main__':
     smtp_client('127.0.0.1', 1025)
